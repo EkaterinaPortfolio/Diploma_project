@@ -1,6 +1,8 @@
 plugins {
     id 'java'
-    id "io.freefair.lombok" version "6.6.1"
+    id 'io.qameta.allure' version '2.11.2'
+    id "io.freefair.lombok" version "8.2.2"
+
 }
 
 group = 'ru.netology'
@@ -9,6 +11,13 @@ version = '1.0-SNAPSHOT'
 sourceCompatibility = 11
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
+
+allure {
+    version = '2.20.1'
+    useJUnit5 {
+        version = '2.20.1'
+    }
+}
 
 repositories {
     mavenCentral()
@@ -19,10 +28,12 @@ dependencies {
     testImplementation 'mysql:mysql-connector-java:8.0.30'    //зависимость для подключения к базе данных
 //    implementation group: 'com.mysql', name: 'mysql-connector-j', version: '8.3.0'
 //    implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.1'
-//    testImplementation 'postgresql:postgresql:42.7.1'
+    testImplementation 'org.postgresql:postgresql:42.7.1'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
     testImplementation 'commons-dbutils:commons-dbutils:1.7'
     testImplementation 'com.codeborne:selenide:6.17.2'
+    testImplementation 'com.github.javafaker:javafaker:1.0.2'
+    testImplementation 'io.qameta.allure:allure-selenide:2.20.1'
 }
 
 test {
