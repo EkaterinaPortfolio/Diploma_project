@@ -103,6 +103,12 @@ public class PaymentTest {
         paymentPage.CVCValidField();
         paymentPage.buttonContinue();
         paymentPage.invalidFormat("Неверный формат");
+        var actualStatusPayment = SQLGenerator.getStatusPayment();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
+        String expectedStatus = null;
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 
     @Test
@@ -115,6 +121,12 @@ public class PaymentTest {
         paymentPage.CVCValidField();
         paymentPage.buttonContinue();
         paymentPage.fieldIsRequired("Поле обязательно для заполнения");
+        var actualStatusPayment = SQLGenerator.getStatusPayment();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
+        String expectedStatus = null;
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 
     @Test
@@ -129,7 +141,7 @@ public class PaymentTest {
         paymentPage.incorrectExpirationDate("Неверно указан срок действия карты");
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
-        String expectedStatus = DataGenerator.APPROVED().getStatus();
+        String expectedStatus = null;
         String expectedId = null;
         assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
                 () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
@@ -145,6 +157,12 @@ public class PaymentTest {
         paymentPage.CVCValidField();
         paymentPage.buttonContinue();
         paymentPage.incorrectExpirationDate("Неверно указан срок действия карты");
+        var actualStatusPayment = SQLGenerator.getStatusPayment();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
+        String expectedStatus = null;
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 
     @Test
@@ -157,6 +175,12 @@ public class PaymentTest {
         paymentPage.CVCValidField();
         paymentPage.buttonContinue();
         paymentPage.fieldIsRequired("Поле обязательно для заполнения");
+        var actualStatusPayment = SQLGenerator.getStatusPayment();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
+        String expectedStatus = null;
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 
     @Test
@@ -169,6 +193,12 @@ public class PaymentTest {
         paymentPage.CVCValidField();
         paymentPage.buttonContinue();
         paymentPage.theCardIsExpired("Истёк срок действия карты");
+        var actualStatusPayment = SQLGenerator.getStatusPayment();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
+        String expectedStatus = null;
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 
     @Test
@@ -181,6 +211,12 @@ public class PaymentTest {
         paymentPage.CVCValidField();
         paymentPage.buttonContinue();
         paymentPage.incorrectExpirationDate("Неверно указан срок действия карты");
+        var actualStatusPayment = SQLGenerator.getStatusPayment();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
+        String expectedStatus = null;
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 
     @Test
@@ -193,6 +229,12 @@ public class PaymentTest {
         paymentPage.CVCValidField();
         paymentPage.buttonContinue();
         paymentPage.theCardIsExpired("Истёк срок действия карты");
+        var actualStatusPayment = SQLGenerator.getStatusPayment();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
+        String expectedStatus = null;
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 
     @Test
@@ -205,6 +247,12 @@ public class PaymentTest {
         paymentPage.CVCValidField();
         paymentPage.buttonContinue();
         paymentPage.fieldIsRequired("Поле обязательно для заполнения");
+        var actualStatusPayment = SQLGenerator.getStatusPayment();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
+        String expectedStatus = null;
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 
     @Test
@@ -217,6 +265,12 @@ public class PaymentTest {
         paymentPage.CVCValidField();
         paymentPage.buttonContinue();
         paymentPage.fieldIsRequired("Поле обязательно для заполнения");
+        var actualStatusPayment = SQLGenerator.getStatusPayment();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
+        String expectedStatus = null;
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 
     @Test
@@ -229,6 +283,13 @@ public class PaymentTest {
         paymentPage.emptyCVC();
         paymentPage.buttonContinue();
         paymentPage.fieldIsRequired("Поле обязательно для заполнения");
+        paymentPage.invalidFormatWeDontSeeIt("Неверный формат");
+        var actualStatusPayment = SQLGenerator.getStatusPayment();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
+        String expectedStatus = null;
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 
     @Test
@@ -241,6 +302,12 @@ public class PaymentTest {
         paymentPage.shortCVC();
         paymentPage.buttonContinue();
         paymentPage.invalidFormat("Неверный формат");
+        var actualStatusPayment = SQLGenerator.getStatusPayment();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
+        String expectedStatus = null;
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 
     @Test
@@ -253,6 +320,12 @@ public class PaymentTest {
         paymentPage.CVCValidField();
         paymentPage.buttonContinue();
         paymentPage.invalidFormat("Неверный формат");
+        var actualStatusPayment = SQLGenerator.getStatusPayment();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
+        String expectedStatus = null;
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 
     @Test
@@ -265,6 +338,12 @@ public class PaymentTest {
         paymentPage.CVCValidField();
         paymentPage.buttonContinue();
         paymentPage.invalidFormat("Неверный формат");
+        var actualStatusPayment = SQLGenerator.getStatusPayment();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
+        String expectedStatus = null;
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 
     @Test
@@ -277,6 +356,12 @@ public class PaymentTest {
         paymentPage.CVCValidField();
         paymentPage.buttonContinue();
         paymentPage.invalidFormat("Неверный формат");
+        var actualStatusPayment = SQLGenerator.getStatusPayment();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
+        String expectedStatus = null;
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 
     @Test
@@ -289,6 +374,12 @@ public class PaymentTest {
         paymentPage.CVCValidField();
         paymentPage.buttonContinue();
         paymentPage.invalidFormat("Неверный формат");
+        var actualStatusPayment = SQLGenerator.getStatusPayment();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
+        String expectedStatus = null;
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 
     @Test
@@ -301,5 +392,11 @@ public class PaymentTest {
         paymentPage.CVCValidField();
         paymentPage.buttonContinue();
         paymentPage.fieldIsRequired("Поле обязательно для заполнения");
+        var actualStatusPayment = SQLGenerator.getStatusPayment();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
+        String expectedStatus = null;
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 }

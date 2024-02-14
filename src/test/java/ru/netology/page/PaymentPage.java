@@ -35,6 +35,7 @@ public class PaymentPage {
     private final SelenideElement theCardIsExpired = $$(".form-field .input__sub").findBy(text("Истёк срок действия карты"));
 
 
+
     public void purchasePage() {    //переход к покупке
         heading.shouldHave(visible);
         purchase.click();
@@ -186,7 +187,14 @@ public class PaymentPage {
     @DisplayName("Неверный формат")
     public void invalidFormat(String expectedText) {
         invalidFormat
+                .shouldBe(visible, Duration.ofSeconds(15))
                 .shouldHave(exactText(expectedText)).shouldBe(visible);
+    }
+    @DisplayName("(Неверный формат) не видим")
+    public void invalidFormatWeDontSeeIt(String expectedText) {
+        invalidFormat
+                .shouldBe(empty)
+                .shouldHave(exactText(expectedText)).shouldBe(empty);
     }
 
     @DisplayName("Поле обязательно для заполнения")
