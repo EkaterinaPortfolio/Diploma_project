@@ -125,6 +125,12 @@ public class CreditTest {
         paymentPage.CVCValidField();
         paymentPage.buttonContinue();
         paymentPage.incorrectExpirationDate("Неверно указан срок действия карты");
+        var actualStatusPayment = SQLGenerator.getStatusPaymentCredit();
+        var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityPayment();
+        String expectedStatus = DataGenerator.APPROVED().getStatus();
+        String expectedId = null;
+        assertAll(() -> assertEquals(expectedStatus, actualStatusPayment),
+                () -> assertEquals(expectedId, actualStatusOrder_entityPayment));
     }
 
     @Test
@@ -222,6 +228,7 @@ public class CreditTest {
         paymentPage.buttonContinue();
         paymentPage.fieldIsRequired("Поле обязательно для заполнения");
     }
+
     @Test
     @DisplayName("1.37 Отправка формы, введя в поле \"CVC/CVV\" две цифры")
     void shortCVCСredit() {

@@ -5,22 +5,62 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="943be3d6-1fc6-45d2-a944-f57f98cfde4a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/gate-simulator/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/gate-simulator/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/gate-simulator/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/gate-simulator/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/netology/data/DataGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/netology/data/SQLGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/netology/page/PaymentPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/netology/test/CreditTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/netology/test/PaymentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/13823/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/13823/pg_internal.init" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/1247" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/1247" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/1247_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/1247_fsm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/1247_vm" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/1247_vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/1249" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/1249" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/1249_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/1249_fsm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/1249_vm" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/1249_vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/1259" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/1259" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/1259_vm" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/1259_vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2579" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2579" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2606" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2606" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2606_vm" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2606_vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2608" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2608" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2608_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2608_fsm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2608_vm" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2608_vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2610" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2610" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2610_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2610_fsm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2610_vm" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2610_vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2619" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2619" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2619_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2619_fsm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2619_vm" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2619_vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2658" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2658" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2659" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2659" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2662" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2662" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2663" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2663" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2664" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2664" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2665" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2665" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2666" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2666" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2667" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2667" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2673" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2673" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2673_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2673_fsm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2674" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2674" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2678" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2678" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2679" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2679" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2696" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2696" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2703" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2703" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2704" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2704" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2840" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2840" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2840_vm" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2840_vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/2841" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/2841" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/base/16384/3455" beforeDir="false" afterPath="$PROJECT_DIR$/data/base/16384/3455" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/data/global/pg_control" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/global/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/data/global/pg_internal.init" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pg_stat_tmp/db_0.stat" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg_stat_tmp/db_0.stat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pg_stat_tmp/db_13823.stat" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg_stat_tmp/db_13823.stat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pg_stat_tmp/global.stat" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg_stat_tmp/global.stat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pg_wal/000000010000000000000001" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg_wal/000000010000000000000001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pg_xact/0000" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg_xact/0000" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/postmaster.pid" beforeDir="false" afterPath="$PROJECT_DIR$/data/postmaster.pid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/image/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/netology/page/PaymentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/netology/page/PaymentPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/netology/test/CreditTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/netology/test/CreditTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/netology/test/PaymentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/netology/test/PaymentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,14 +115,14 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Study/AQA/selenide&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Study/AQA/Diploma_project&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.CreditTest.nameWithSpacesСredit">
-    <configuration name="CreditTest.justTheNameСredit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.PaymentTest.transitionToPurchase">
+    <configuration name="CreditTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -95,7 +135,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.netology.test.CreditTest.justTheNameСredit&quot;" />
+            <option value="&quot;ru.netology.test.CreditTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -106,7 +146,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CreditTest.nameWithSpacesСredit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CreditTest.transitionToPurchaseСredit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -119,7 +159,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.netology.test.CreditTest.nameWithSpacesСredit&quot;" />
+            <option value="&quot;ru.netology.test.CreditTest.transitionToPurchaseСredit&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -130,7 +170,29 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CreditTest.ownerCyrillicСredit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Diploma_project [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PaymentTest.transitionToPurchase" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -143,7 +205,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.netology.test.CreditTest.ownerCyrillicСredit&quot;" />
+            <option value="&quot;ru.netology.test.PaymentTest.transitionToPurchase&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -154,7 +216,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CreditTest.ownerNumbersСredit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PaymentTest.yearOverLimit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -167,31 +229,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.netology.test.CreditTest.ownerNumbersСredit&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="CreditTest.ownerSpecialCharactersСredit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;ru.netology.test.CreditTest.ownerSpecialCharactersСredit&quot;" />
+            <option value="&quot;ru.netology.test.PaymentTest.yearOverLimit&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -204,11 +242,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CreditTest.nameWithSpacesСredit" />
-        <item itemvalue="Gradle.CreditTest.justTheNameСredit" />
-        <item itemvalue="Gradle.CreditTest.ownerSpecialCharactersСredit" />
-        <item itemvalue="Gradle.CreditTest.ownerNumbersСredit" />
-        <item itemvalue="Gradle.CreditTest.ownerCyrillicСredit" />
+        <item itemvalue="Gradle.PaymentTest.transitionToPurchase" />
+        <item itemvalue="Gradle.PaymentTest.yearOverLimit" />
+        <item itemvalue="Gradle.CreditTest.transitionToPurchaseСredit" />
+        <item itemvalue="Gradle.Diploma_project [test]" />
+        <item itemvalue="Gradle.CreditTest" />
       </list>
     </recent_temporary>
   </component>

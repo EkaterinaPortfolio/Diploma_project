@@ -40,11 +40,13 @@ public class PaymentPage {
         purchase.click();
         paymentByCard.shouldHave(visible);
     }
+
     public void loanPage() {   // переход к кредиту
         heading.shouldHave(visible);
         buyOnCredit.click();
         credit.shouldHave(visible);
     }
+
     //номера карт
     public void cardFieldApprovedCard() {       // вставляем номер карты
         fieldsetCardNumber.setValue(String.valueOf(DataGenerator.getNumberApprovedCard()));
@@ -53,12 +55,15 @@ public class PaymentPage {
     public void declinedCard() {
         fieldsetCardNumber.setValue(String.valueOf(DataGenerator.getNumberDeclinedCard()));
     }
+
     public void randomCard() {
         fieldsetCardNumber.setValue(String.valueOf(DataGenerator.generateRandomCard()));
     }
+
     public void shortCard() {
         fieldsetCardNumber.setValue(String.valueOf(DataGenerator.generateNotValidCard()));
     }
+
     public void leaveItBlankCard() {
         fieldsetCardNumber.setValue(String.valueOf(DataGenerator.numberEmptinessCard()));
     }
@@ -68,63 +73,79 @@ public class PaymentPage {
     private String generateValidDate(int addMonths, int addYears, String pattern) {
         return LocalDate.now().plusMonths(addMonths).plusYears(addYears).format(DateTimeFormatter.ofPattern(pattern));
     }
+
     private String generateLastYear(int minusYears, String pattern) {
         return LocalDate.now().minusYears(minusYears).format(DateTimeFormatter.ofPattern(pattern));
     }
+
     //месяц
-    public  void monthValidField() {   // вставлям месяц
-        fieldsetMonth.setValue(generateValidDate(1, 0,"MM"));
+    public void monthValidField() {   // вставлям месяц
+        fieldsetMonth.setValue(generateValidDate(0, 0, "MM"));
     }
-    public  void month00() {
+
+    public void month00() {
         fieldsetMonth.setValue(String.valueOf(DataGenerator.month("00")));
     }
-    public  void month13() {
+
+    public void month13() {
         fieldsetMonth.setValue(String.valueOf(DataGenerator.month("13")));
     }
+
     public void monthNotFilledIn() {
         fieldsetMonth.setValue(String.valueOf(DataGenerator.month("")));
     }
 
-    public  void expiredСards() {   // вставлям месяц
-        fieldsetMonth.setValue(generateValidDate(11, 0,"MM"));
+    public void expiredСards() {   // вставлям месяц
+        fieldsetMonth.setValue(generateValidDate(11, 0, "MM"));
     }
-     // год
+
+    // год
     public void yearValidField() { // вставлям year
-        fieldsetYear.setValue(generateValidDate(0, 0,"yy"));
+        fieldsetYear.setValue(generateValidDate(0, 0, "yy"));
     }
+
     public void yearMoreCurrent() { // вставлям year
-        fieldsetYear.setValue(generateValidDate(0, 1,"yy"));
+        fieldsetYear.setValue(generateValidDate(0, 1, "yy"));
     }
+
     public void yearOverLimit() { // вставлям year
-        fieldsetYear.setValue(generateValidDate(0, 6,"yy"));
+        fieldsetYear.setValue(generateValidDate(0, 6, "yy"));
     }
+
     public void generateLastYear() { // вставлям year
-        fieldsetYear.setValue(generateLastYear(1,"yy"));
+        fieldsetYear.setValue(generateLastYear(1, "yy"));
     }
-    public  void year() {
+
+    public void year() {
         fieldsetYear.setValue(String.valueOf(DataGenerator.month("")));
     }
 
-     // владелец
+    // владелец
     public void ownerValidField() { // вставлям владедльца
         fieldsetOwner.setValue(DataGenerator.generateRandomSurname());
     }
-    public  void owner() {
+
+    public void owner() {
         fieldsetOwner.setValue("");
     }
-    public  void nameWithSpaces() {
+
+    public void nameWithSpaces() {
         fieldsetOwner.setValue("       ");
     }
+
     public void cyrillic() { // вставлям владедльца
         fieldsetOwner.setValue(DataGenerator.generateRandomSurnameCyrillic());
     }
-    public  void numbers() {
+
+    public void numbers() {
         fieldsetOwner.setValue(String.valueOf(DataGenerator.generateNotValidCard()));
     }
-    public  void randomSymbol() {
+
+    public void randomSymbol() {
         fieldsetOwner.setValue(String.valueOf(DataGenerator.randomSymbol()));
     }
-    public  void justTheName() {
+
+    public void justTheName() {
         fieldsetOwner.setValue(String.valueOf(DataGenerator.justTheName()));
     }
 
@@ -133,10 +154,12 @@ public class PaymentPage {
     public void CVCValidField() { // вставлям CVC
         fieldsetCVC_CVV.setValue(DataGenerator.generateCVC_CVV());
     }
-    public  void emptyCVC() {
+
+    public void emptyCVC() {
         fieldsetCVC_CVV.setValue("");
     }
-    public  void  shortCVC() {
+
+    public void shortCVC() {
         fieldsetCVC_CVV.setValue(DataGenerator.generateShortCVC_CVV());
     }
 
@@ -152,27 +175,32 @@ public class PaymentPage {
                 .shouldBe(visible, Duration.ofSeconds(15))
                 .shouldHave(exactText(expectedText)).shouldBe(visible);
     }
+
     @DisplayName("Ошибка! Банк отказал в проведении операции.")
     public void bankRefused(String expectedText) {
         bankRefused
                 .shouldBe(visible, Duration.ofSeconds(15))
                 .shouldHave(exactText(expectedText)).shouldBe(visible);
     }
+
     @DisplayName("Неверный формат")
     public void invalidFormat(String expectedText) {
         invalidFormat
                 .shouldHave(exactText(expectedText)).shouldBe(visible);
     }
+
     @DisplayName("Поле обязательно для заполнения")
     public void fieldIsRequired(String expectedText) {
         fieldIsRequired
                 .shouldHave(exactText(expectedText)).shouldBe(visible);
     }
+
     @DisplayName("Неверно указан срок действия карты")
     public void incorrectExpirationDate(String expectedText) {
         incorrectExpirationDate
                 .shouldHave(exactText(expectedText)).shouldBe(visible);
     }
+
     @DisplayName("Истёк срок действия карты")
     public void theCardIsExpired(String expectedText) {
         theCardIsExpired
