@@ -2,11 +2,9 @@ package ru.netology.data;
 
 import com.github.javafaker.CreditCardType;
 import com.github.javafaker.Faker;
-import lombok.Getter;
 import lombok.Value;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 import java.util.Locale;
 import java.util.Random;
 

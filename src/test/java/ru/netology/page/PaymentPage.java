@@ -2,7 +2,6 @@ package ru.netology.page;
 
 
 import com.codeborne.selenide.SelenideElement;
-import lombok.Value;
 import org.junit.jupiter.api.DisplayName;
 import ru.netology.data.DataGenerator;
 
