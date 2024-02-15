@@ -4,7 +4,7 @@
 2. Уникальная технология: выдача кредита по данным банковской карты.
 
 ## Начало работы
-Для получения копии этого проекта и его запуска на локальном ПК необходимо склонировать [репозиторий](https://github.com/Ekaterina7121994/Diploma_project).
+Для получения копии этого проекта и его запуска на локальном ПК необходимо клонировать  [репозиторий](https://github.com/Ekaterina7121994/Diploma_project).
 Последовательность действий:
 1. Открыть [репозиторий](https://github.com/Ekaterina7121994/Diploma_project)
 2. Нажать на кнопку ![image](https://github.com/Ekaterina7121994/Diploma_project/assets/139957663/e93bf0fc-c20e-4588-aac0-0a4a0be31487)
@@ -17,7 +17,7 @@
 
 **Пример:** git clone git@github.com:Ekaterina7121994/Diploma_project.git
 
-6. Открыть в IntelliJ IDEA Community Edition 2023.2 склонированный проект 
+6. Открыть в IntelliJ IDEA Community Edition 2023.2 клонированный проект 
 
 ## Prerequisites
 Для работы с проектом вам потребуется:
@@ -31,10 +31,10 @@
 
 ## Установка и запуск
     1. Установить всё программное обеспечение из пункта Prerequisites
-    2. Клонировать рерозиторий на ПК
+    2. Клонировать репозиторий на ПК
     3. Запустить программу Docker
-    4. Октрыть проект в IntelliJ IDEA
-    5. Отктыть терминал в IntelliJ IDEA (ввести каждую команду в новой вкладке Local)
+    4. Открыть проект в IntelliJ IDEA
+    5. Открыть терминал в IntelliJ IDEA (ввести каждую команду в новой вкладке Local)
     6. Запускаем контейнер командой: docker-compose up --build
     7. Запускаем Jar файл:
         Для БД MySQL: java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar   
