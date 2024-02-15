@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="943be3d6-1fc6-45d2-a944-f57f98cfde4a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg_stat_tmp/db_0.stat" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg_stat_tmp/db_0.stat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg_stat_tmp/db_13823.stat" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg_stat_tmp/db_13823.stat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/pg_stat_tmp/db_16384.stat" beforeDir="false" afterPath="$PROJECT_DIR$/data/pg_stat_tmp/db_16384.stat" afterDir="false" />
