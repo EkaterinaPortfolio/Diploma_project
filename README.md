@@ -1,3 +1,4 @@
+[![Java CI with Gradle](https://github.com/Ekaterina7121994/Diploma_project/actions/workflows/gradle.yml/badge.svg)](https://github.com/Ekaterina7121994/Diploma_project/actions/workflows/gradle.yml)
 # Путешествие дня
 Необходимо протестировать веб-сервис, который предлагает купить тур по определённой цене двумя способами:
 1. Обычная оплата по дебетовой карте.
