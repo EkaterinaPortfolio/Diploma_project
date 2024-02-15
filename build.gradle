@@ -25,8 +25,6 @@ repositories {
 
 dependencies {
     testRuntimeOnly 'org.slf4j:slf4j-simple:2.0.3'
-
-
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
     testImplementation 'mysql:mysql-connector-java:8.0.30'
     testImplementation 'org.postgresql:postgresql:42.7.1'
@@ -36,10 +34,6 @@ dependencies {
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
     testImplementation 'io.qameta.allure:allure-selenide:2.20.1'
     testImplementation 'com.google.code.gson:gson:2.10.1'
-    compile 'com.browserstack:selenide-browserstack-driver:1.4.0'
-
-
-
 }
 
 test {
