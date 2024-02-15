@@ -36,7 +36,7 @@ dependencies {
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
     testImplementation 'io.qameta.allure:allure-selenide:2.20.1'
     testImplementation 'com.google.code.gson:gson:2.10.1'
-    testImplementation 'io.github.bonigarcia:webdrivermanager:5.4.1'
+    testImplementation 'com.browserstack:selenide-browserstack-driver:1.4.0'
 
 
 
