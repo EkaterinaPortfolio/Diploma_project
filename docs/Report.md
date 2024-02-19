@@ -13,11 +13,11 @@
 * 20 для тестирования сервиса Credit Gate
 ## 3. Процент успешных и не успешных тест-кейсов
 По итогам тестирования 40% тестов прошли успешно
-![image](https://github.com/Ekaterina7121994/Diploma_project/assets/139957663/a0b4a338-fa46-4db2-ae3a-195eb47631cf)
-![image](https://github.com/Ekaterina7121994/Diploma_project/assets/139957663/3a564307-fb11-4527-9074-9db995472c24)
-![image](https://github.com/Ekaterina7121994/Diploma_project/assets/139957663/a8c94aef-5842-4b28-8133-2392448ff133)
-![image](https://github.com/Ekaterina7121994/Diploma_project/assets/139957663/785c12aa-d8e6-4051-9444-71c8e88084d6)
-![image](https://github.com/Ekaterina7121994/Diploma_project/assets/139957663/b7cc717c-912b-4e13-83f4-e12ae2d37037)
+![image](https://github.com/Ekaterina7121994/Diploma_project/assets/139957663/a416dd36-8e96-4b15-9cec-14213412a467)
+![image](https://github.com/Ekaterina7121994/Diploma_project/assets/139957663/1f3fcc6a-9cb4-4150-b644-f4688392e66e)
+![image](https://github.com/Ekaterina7121994/Diploma_project/assets/139957663/2b6aea1b-65be-4565-bbb3-1ce68a7a5126)
+![image](https://github.com/Ekaterina7121994/Diploma_project/assets/139957663/4ecd7d59-10f4-4b91-ad29-c1aa78f9a029)
+![image](https://github.com/Ekaterina7121994/Diploma_project/assets/139957663/bffd5762-cf94-4eef-8684-0c5b6cc1b9bf)
 
 ## 4. Общие рекомендации
 1. Реализовать валидацию полей в форме приложения
