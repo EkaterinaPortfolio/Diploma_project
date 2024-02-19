@@ -12,7 +12,7 @@
 * 20 для тестирования сервиса Payment Gate
 * 20 для тестирования сервиса Credit Gate
 ## 3. Процент успешных и не успешных тест-кейсов
-По итогам тестирования 40% тестов прошли успешно
+По итогам тестирования 42,5% тестов прошли успешно
 ![image](https://github.com/Ekaterina7121994/Diploma_project/assets/139957663/a416dd36-8e96-4b15-9cec-14213412a467)
 ![image](https://github.com/Ekaterina7121994/Diploma_project/assets/139957663/1f3fcc6a-9cb4-4150-b644-f4688392e66e)
 ![image](https://github.com/Ekaterina7121994/Diploma_project/assets/139957663/2b6aea1b-65be-4565-bbb3-1ce68a7a5126)
