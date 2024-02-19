@@ -24,6 +24,10 @@ repositories {
 }
 
 dependencies {
+    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'junit:junit:4.13.1'
     testRuntimeOnly 'org.slf4j:slf4j-simple:2.0.3'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
     testImplementation 'mysql:mysql-connector-java:8.0.30'

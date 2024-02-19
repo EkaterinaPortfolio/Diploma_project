@@ -9,6 +9,10 @@ import ru.netology.page.PaymentPage;
 import io.qameta.allure.selenide.AllureSelenide;
 
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -42,11 +46,11 @@ public class PaymentTest {
     @Test
     @DisplayName("1.2 Заполнение формы валидными данными")
     void transitionToPurchase() {
-        paymentPage.cardFieldApprovedCard();
-        paymentPage.monthValidField();
-        paymentPage.yearValidField();
-        paymentPage.ownerValidField();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.getNumberApprovedCard());
+        paymentPage.monthNumber(DataGenerator.generateValidDate(0, 0, "MM"));
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 0, "yy"));
+        paymentPage.fullName(DataGenerator.generateRandomSurname());
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
         paymentPage.successfully("Операция одобрена банком.");
         var actualStatusPayment = SQLGenerator.getStatusPayment();
@@ -60,11 +64,11 @@ public class PaymentTest {
     @Test
     @DisplayName("1.3 Отправка формы с введением номера карты со статусом DECLINED")
     void cardsWithTheDECLINEDStatus() {
-        paymentPage.declinedCard();
-        paymentPage.monthValidField();
-        paymentPage.yearValidField();
-        paymentPage.ownerValidField();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.getNumberDeclinedCard());
+        paymentPage.monthNumber(DataGenerator.generateValidDate(0, 0, "MM"));
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 0, "yy"));
+        paymentPage.fullName(DataGenerator.generateRandomSurname());
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
         paymentPage.bankRefused("Ошибка! Банк отказал в проведении операции.");
         var actualStatusPayment = SQLGenerator.getStatusPayment();
@@ -78,11 +82,11 @@ public class PaymentTest {
     @Test
     @DisplayName("1.4 Отправка формы с введением рандомного 16-значного номера карты, цифрами")
     void randomCardNumber() {
-        paymentPage.randomCard();
-        paymentPage.monthValidField();
-        paymentPage.yearValidField();
-        paymentPage.ownerValidField();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.generateRandomCard());
+        paymentPage.monthNumber(DataGenerator.generateValidDate(0, 0, "MM"));
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 0, "yy"));
+        paymentPage.fullName(DataGenerator.generateRandomSurname());
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
         paymentPage.bankRefused("Ошибка! Банк отказал в проведении операции.");
         var actualStatusPayment = SQLGenerator.getStatusPayment();
@@ -96,13 +100,13 @@ public class PaymentTest {
     @Test
     @DisplayName("1.5 Отправка формы с введением 15-значного номера карты, цифрами")
     void shortCardNumber() {
-        paymentPage.shortCard();
-        paymentPage.monthValidField();
-        paymentPage.yearValidField();
-        paymentPage.ownerValidField();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.generateNotValidCard());
+        paymentPage.monthNumber(DataGenerator.generateValidDate(0, 0, "MM"));
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 0, "yy"));
+        paymentPage.fullName(DataGenerator.generateRandomSurname());
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
-        paymentPage.invalidFormat("Неверный формат");
+        paymentPage.invalidFormat.shouldBe(visible, Duration.ofSeconds(15));
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;
@@ -114,13 +118,13 @@ public class PaymentTest {
     @Test
     @DisplayName("1.6 Отправка формы, оставив пустым поле \"Номер карты\"")
     void leaveItBlankCardNumber() {
-        paymentPage.leaveItBlankCard();
-        paymentPage.monthValidField();
-        paymentPage.yearValidField();
-        paymentPage.ownerValidField();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber("");
+        paymentPage.monthNumber(DataGenerator.generateValidDate(0, 0, "MM"));
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 0, "yy"));
+        paymentPage.fullName(DataGenerator.generateRandomSurname());
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
-        paymentPage.fieldIsRequired("Поле обязательно для заполнения");
+        paymentPage.fieldIsRequired.shouldBe(visible);
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;
@@ -132,13 +136,13 @@ public class PaymentTest {
     @Test
     @DisplayName("1.7 Отправка формы, заполнив поле \"Месяц\" НЕ валидным значением 00")
     void enteringMonth00() {
-        paymentPage.cardFieldApprovedCard();
-        paymentPage.month00();
-        paymentPage.yearMoreCurrent();
-        paymentPage.ownerValidField();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.getNumberApprovedCard());
+        paymentPage.monthNumber("00");
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 1, "yy"));
+        paymentPage.fullName(DataGenerator.generateRandomSurname());
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
-        paymentPage.incorrectExpirationDate("Неверно указан срок действия карты");
+        paymentPage.incorrectExpirationDate.shouldBe(visible);
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;
@@ -150,13 +154,13 @@ public class PaymentTest {
     @Test
     @DisplayName("1.8 Отправка формы, заполнив поле \"Месяц\" НЕ валидным значением 13")
     void enteringMonth13() {
-        paymentPage.cardFieldApprovedCard();
-        paymentPage.month13();
-        paymentPage.yearValidField();
-        paymentPage.ownerValidField();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.getNumberApprovedCard());
+        paymentPage.monthNumber("13");
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 0, "yy"));
+        paymentPage.fullName(DataGenerator.generateRandomSurname());
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
-        paymentPage.incorrectExpirationDate("Неверно указан срок действия карты");
+        paymentPage.incorrectExpirationDate.shouldBe(visible);
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;
@@ -168,13 +172,13 @@ public class PaymentTest {
     @Test
     @DisplayName("1.9 Отправка формы, оставив поле \"Месяц\" не заполненным")
     void leaveMonthEmpty() {
-        paymentPage.cardFieldApprovedCard();
-        paymentPage.monthNotFilledIn();
-        paymentPage.yearValidField();
-        paymentPage.ownerValidField();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.getNumberApprovedCard());
+        paymentPage.monthNumber("");
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 0, "yy"));
+        paymentPage.fullName(DataGenerator.generateRandomSurname());
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
-        paymentPage.fieldIsRequired("Поле обязательно для заполнения");
+        paymentPage.fieldIsRequired.shouldBe(visible);
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;
@@ -186,13 +190,13 @@ public class PaymentTest {
     @Test
     @DisplayName("1.10 Отправка формы, введя \"Месяц\" на один меньше текущего и введя в поле \"Год\" текущий")
     void expiredСard() {
-        paymentPage.cardFieldApprovedCard();
-        paymentPage.expiredСards();
-        paymentPage.yearValidField();
-        paymentPage.ownerValidField();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.getNumberApprovedCard());
+        paymentPage.monthNumber(DataGenerator.generateValidDate(11, 0, "MM"));
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 0, "yy"));
+        paymentPage.fullName(DataGenerator.generateRandomSurname());
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
-        paymentPage.theCardIsExpired("Истёк срок действия карты");
+        paymentPage.theCardIsExpired.shouldBe(visible);
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;
@@ -204,13 +208,13 @@ public class PaymentTest {
     @Test
     @DisplayName("1.11 Отправка формы, прибавив к текущему году 6 лет")
     void yearOverLimit() {
-        paymentPage.cardFieldApprovedCard();
-        paymentPage.monthValidField();
-        paymentPage.yearOverLimit();
-        paymentPage.ownerValidField();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.getNumberApprovedCard());
+        paymentPage.monthNumber(DataGenerator.generateValidDate(0, 0, "MM"));
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 6, "yy"));
+        paymentPage.fullName(DataGenerator.generateRandomSurname());
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
-        paymentPage.incorrectExpirationDate("Неверно указан срок действия карты");
+        paymentPage.incorrectExpirationDate.shouldBe(visible);
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;
@@ -222,13 +226,13 @@ public class PaymentTest {
     @Test
     @DisplayName("1.12 Отправка формы, введя в поле \"Год\" на один меньше текущего")
     void lastYear() {
-        paymentPage.cardFieldApprovedCard();
-        paymentPage.monthValidField();
-        paymentPage.generateLastYear();
-        paymentPage.ownerValidField();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.getNumberApprovedCard());
+        paymentPage.monthNumber(DataGenerator.generateValidDate(0, 0, "MM"));
+        paymentPage.yearNumber(DataGenerator.generateLastYear(1, "yy"));
+        paymentPage.fullName(DataGenerator.generateRandomSurname());
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
-        paymentPage.theCardIsExpired("Истёк срок действия карты");
+        paymentPage.theCardIsExpired.shouldBe(visible);
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;
@@ -240,13 +244,13 @@ public class PaymentTest {
     @Test
     @DisplayName("1.13 Отправка формы, оставив поле \"Год\" пустым")
     void yearFieldEmpty() {
-        paymentPage.cardFieldApprovedCard();
-        paymentPage.monthValidField();
-        paymentPage.year();
-        paymentPage.ownerValidField();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.getNumberApprovedCard());
+        paymentPage.monthNumber(DataGenerator.generateValidDate(0, 0, "MM"));
+        paymentPage.yearNumber("");
+        paymentPage.fullName(DataGenerator.generateRandomSurname());
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
-        paymentPage.fieldIsRequired("Поле обязательно для заполнения");
+        paymentPage.fieldIsRequired.shouldBe(visible);
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;
@@ -258,13 +262,13 @@ public class PaymentTest {
     @Test
     @DisplayName("1.14 Отправка формы, оставив поле \"Владелец\" пустым")
     void ownerFieldEmpty() {
-        paymentPage.cardFieldApprovedCard();
-        paymentPage.monthValidField();
-        paymentPage.yearValidField();
-        paymentPage.owner();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.getNumberApprovedCard());
+        paymentPage.monthNumber(DataGenerator.generateValidDate(0, 0, "MM"));
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 0, "yy"));
+        paymentPage.fullName("");
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
-        paymentPage.fieldIsRequired("Поле обязательно для заполнения");
+        paymentPage.fieldIsRequired.shouldBe(visible);
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;
@@ -276,14 +280,14 @@ public class PaymentTest {
     @Test
     @DisplayName("1.15 Отправка формы, оставив поле \"CVC/CVV\" пустым")
     void emptyCVC() {
-        paymentPage.cardFieldApprovedCard();
-        paymentPage.monthValidField();
-        paymentPage.yearValidField();
-        paymentPage.ownerValidField();
-        paymentPage.emptyCVC();
+        paymentPage.cardNumber(DataGenerator.getNumberApprovedCard());
+        paymentPage.monthNumber(DataGenerator.generateValidDate(0, 0, "MM"));
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 0, "yy"));
+        paymentPage.fullName(DataGenerator.generateRandomSurname());
+        paymentPage.CVC("");
         paymentPage.buttonContinue();
-        paymentPage.fieldIsRequired("Поле обязательно для заполнения");
-        paymentPage.invalidFormatWeDontSeeIt("Неверный формат");
+        paymentPage.fieldIsRequired.shouldBe(visible);
+        paymentPage.invalidFormat.shouldBe(empty);
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;
@@ -295,13 +299,13 @@ public class PaymentTest {
     @Test
     @DisplayName("1.16 Отправка формы, введя в поле \"CVC/CVV\" две цифры")
     void shortCVC() {
-        paymentPage.cardFieldApprovedCard();
-        paymentPage.monthValidField();
-        paymentPage.yearValidField();
-        paymentPage.ownerValidField();
-        paymentPage.shortCVC();
+        paymentPage.cardNumber(DataGenerator.getNumberApprovedCard());
+        paymentPage.monthNumber(DataGenerator.generateValidDate(0, 0, "MM"));
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 0, "yy"));
+        paymentPage.fullName(DataGenerator.generateRandomSurname());
+        paymentPage.CVC(DataGenerator.generateShortCVC_CVV());
         paymentPage.buttonContinue();
-        paymentPage.invalidFormat("Неверный формат");
+        paymentPage.invalidFormat.shouldBe(visible);
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;
@@ -313,13 +317,13 @@ public class PaymentTest {
     @Test
     @DisplayName("1.17 Отправка формы, введя в поле \"Владелец\" НЕ валидное значение, кириллицей")
     void ownerCyrillic() {
-        paymentPage.cardFieldApprovedCard();
-        paymentPage.monthValidField();
-        paymentPage.yearValidField();
-        paymentPage.cyrillic();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.getNumberApprovedCard());
+        paymentPage.monthNumber(DataGenerator.generateValidDate(0, 0, "MM"));
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 0, "yy"));
+        paymentPage.fullName(DataGenerator.generateRandomSurnameCyrillic());
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
-        paymentPage.invalidFormat("Неверный формат");
+        paymentPage.invalidFormat.shouldBe(visible);
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;
@@ -331,13 +335,13 @@ public class PaymentTest {
     @Test
     @DisplayName("1.18 Отправка формы, введя в поле \"Владелец\" НЕ валидное значение, цифрами")
     void ownerNumbers() {
-        paymentPage.cardFieldApprovedCard();
-        paymentPage.monthValidField();
-        paymentPage.yearValidField();
-        paymentPage.numbers();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.getNumberApprovedCard());
+        paymentPage.monthNumber(DataGenerator.generateValidDate(0, 0, "MM"));
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 0, "yy"));
+        paymentPage.fullName(DataGenerator.generateNotValidCard());
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
-        paymentPage.invalidFormat("Неверный формат");
+        paymentPage.invalidFormat.shouldBe(visible);
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;
@@ -349,13 +353,13 @@ public class PaymentTest {
     @Test
     @DisplayName("1.19 Отправка формы, введя в поле \"Владелец\" НЕ валидное значение, спецсимволами")
     void ownerSpecialCharacters() {
-        paymentPage.cardFieldApprovedCard();
-        paymentPage.monthValidField();
-        paymentPage.yearValidField();
-        paymentPage.randomSymbol();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.getNumberApprovedCard());
+        paymentPage.monthNumber(DataGenerator.generateValidDate(0, 0, "MM"));
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 0, "yy"));
+        paymentPage.fullName(DataGenerator.randomSymbol());
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
-        paymentPage.invalidFormat("Неверный формат");
+        paymentPage.invalidFormat.shouldBe(visible);
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;
@@ -367,13 +371,13 @@ public class PaymentTest {
     @Test
     @DisplayName("1.20 Отправка формы, введя в поле \"Владелец\" НЕ валидное значение, латиницей, только Имя")
     void justTheName() {
-        paymentPage.cardFieldApprovedCard();
-        paymentPage.monthValidField();
-        paymentPage.yearValidField();
-        paymentPage.justTheName();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.getNumberApprovedCard());
+        paymentPage.monthNumber(DataGenerator.generateValidDate(0, 0, "MM"));
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 0, "yy"));
+        paymentPage.fullName(DataGenerator.justTheName());
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
-        paymentPage.invalidFormat("Неверный формат");
+        paymentPage.invalidFormat.shouldBe(visible);
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;
@@ -385,13 +389,13 @@ public class PaymentTest {
     @Test
     @DisplayName("1.21 Отправка формы, введя в поле \"Владелец\" НЕ валидное значение, пробелами")
     void nameWithSpaces() {
-        paymentPage.cardFieldApprovedCard();
-        paymentPage.monthValidField();
-        paymentPage.yearValidField();
-        paymentPage.nameWithSpaces();
-        paymentPage.CVCValidField();
+        paymentPage.cardNumber(DataGenerator.getNumberApprovedCard());
+        paymentPage.monthNumber(DataGenerator.generateValidDate(0, 0, "MM"));
+        paymentPage.yearNumber(DataGenerator.generateValidDate(0, 0, "yy"));
+        paymentPage.fullName("       ");
+        paymentPage.CVC(DataGenerator.generateCVC_CVV());
         paymentPage.buttonContinue();
-        paymentPage.fieldIsRequired("Поле обязательно для заполнения");
+        paymentPage.fieldIsRequired.shouldBe(visible);
         var actualStatusPayment = SQLGenerator.getStatusPayment();
         var actualStatusOrder_entityPayment = SQLGenerator.getStatusOrder_entityCredit();
         String expectedStatus = null;

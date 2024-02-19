@@ -3,11 +3,8 @@ package ru.netology.page;
 
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.DisplayName;
-import ru.netology.data.DataGenerator;
 
 import java.time.Duration;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -28,149 +25,51 @@ public class PaymentPage {
     private final SelenideElement resume = $$(".button__text").findBy(text("Продолжить"));
     private final SelenideElement successfully = $(".notification_status_ok .notification__content");
     private final SelenideElement bankRefused = $(".notification_status_error .notification__content");
-    private final SelenideElement invalidFormat = $$(".form-field .input__sub").findBy(text("Неверный формат"));
-    private final SelenideElement fieldIsRequired = $$(".form-field .input__sub").findBy(text("Поле обязательно для заполнения"));
-    private final SelenideElement incorrectExpirationDate = $$(".form-field .input__sub").findBy(text("Неверно указан срок действия карты"));
-    private final SelenideElement theCardIsExpired = $$(".form-field .input__sub").findBy(text("Истёк срок действия карты"));
+    public final SelenideElement invalidFormat = $$(".form-field .input__sub").findBy(text("Неверный формат"));
+    public final SelenideElement fieldIsRequired = $$(".form-field .input__sub").findBy(text("Поле обязательно для заполнения"));
+    public final SelenideElement incorrectExpirationDate = $$(".form-field .input__sub").findBy(text("Неверно указан срок действия карты"));
+    public final SelenideElement theCardIsExpired = $$(".form-field .input__sub").findBy(text("Истёк срок действия карты"));
 
 
-
-    public void purchasePage() {    //переход к покупке
+    public void purchasePage() {
         heading.shouldHave(visible);
         purchase.click();
         paymentByCard.shouldHave(visible);
     }
 
-    public void loanPage() {   // переход к кредиту
+    public void loanPage() {
         heading.shouldHave(visible);
         buyOnCredit.click();
         credit.shouldHave(visible);
     }
 
-    //номера карт
-    public void cardFieldApprovedCard() {       // вставляем номер карты
-        fieldsetCardNumber.setValue(String.valueOf(DataGenerator.getNumberApprovedCard()));
+    public void cardNumber(String getCardNumber) {
+        fieldsetCardNumber.setValue(String.valueOf(getCardNumber));
     }
 
-    public void declinedCard() {
-        fieldsetCardNumber.setValue(String.valueOf(DataGenerator.getNumberDeclinedCard()));
+    public void monthNumber(String getMonthNumber) {
+        fieldsetMonth.setValue(String.valueOf(getMonthNumber));
     }
 
-    public void randomCard() {
-        fieldsetCardNumber.setValue(String.valueOf(DataGenerator.generateRandomCard()));
+    public void yearNumber(String getYears) {
+        fieldsetYear.setValue(String.valueOf(getYears));
     }
 
-    public void shortCard() {
-        fieldsetCardNumber.setValue(String.valueOf(DataGenerator.generateNotValidCard()));
+    public void fullName(String getName) {
+        fieldsetOwner.setValue(String.valueOf(getName));
     }
 
-    public void leaveItBlankCard() {
-        fieldsetCardNumber.setValue(String.valueOf(DataGenerator.numberEmptinessCard()));
+    public void CVC(String getCVC) {
+        fieldsetCVC_CVV.setValue(String.valueOf(getCVC));
     }
-
-///////
-
-    private String generateValidDate(int addMonths, int addYears, String pattern) {
-        return LocalDate.now().plusMonths(addMonths).plusYears(addYears).format(DateTimeFormatter.ofPattern(pattern));
-    }
-
-    private String generateLastYear(int minusYears, String pattern) {
-        return LocalDate.now().minusYears(minusYears).format(DateTimeFormatter.ofPattern(pattern));
-    }
-
-    //месяц
-    public void monthValidField() {   // вставлям месяц
-        fieldsetMonth.setValue(generateValidDate(0, 0, "MM"));
-    }
-
-    public void month00() {
-        fieldsetMonth.setValue(String.valueOf(DataGenerator.month("00")));
-    }
-
-    public void month13() {
-        fieldsetMonth.setValue(String.valueOf(DataGenerator.month("13")));
-    }
-
-    public void monthNotFilledIn() {
-        fieldsetMonth.setValue(String.valueOf(DataGenerator.month("")));
-    }
-
-    public void expiredСards() {   // вставлям месяц
-        fieldsetMonth.setValue(generateValidDate(11, 0, "MM"));
-    }
-
-    // год
-    public void yearValidField() { // вставлям year
-        fieldsetYear.setValue(generateValidDate(0, 0, "yy"));
-    }
-
-    public void yearMoreCurrent() { // вставлям year
-        fieldsetYear.setValue(generateValidDate(0, 1, "yy"));
-    }
-
-    public void yearOverLimit() { // вставлям year
-        fieldsetYear.setValue(generateValidDate(0, 6, "yy"));
-    }
-
-    public void generateLastYear() { // вставлям year
-        fieldsetYear.setValue(generateLastYear(1, "yy"));
-    }
-
-    public void year() {
-        fieldsetYear.setValue(String.valueOf(DataGenerator.month("")));
-    }
-
-    // владелец
-    public void ownerValidField() { // вставлям владедльца
-        fieldsetOwner.setValue(DataGenerator.generateRandomSurname());
-    }
-
-    public void owner() {
-        fieldsetOwner.setValue("");
-    }
-
-    public void nameWithSpaces() {
-        fieldsetOwner.setValue("       ");
-    }
-
-    public void cyrillic() { // вставлям владедльца
-        fieldsetOwner.setValue(DataGenerator.generateRandomSurnameCyrillic());
-    }
-
-    public void numbers() {
-        fieldsetOwner.setValue(String.valueOf(DataGenerator.generateNotValidCard()));
-    }
-
-    public void randomSymbol() {
-        fieldsetOwner.setValue(String.valueOf(DataGenerator.randomSymbol()));
-    }
-
-    public void justTheName() {
-        fieldsetOwner.setValue(String.valueOf(DataGenerator.justTheName()));
-    }
-
-
-    //CVC
-    public void CVCValidField() { // вставлям CVC
-        fieldsetCVC_CVV.setValue(DataGenerator.generateCVC_CVV());
-    }
-
-    public void emptyCVC() {
-        fieldsetCVC_CVV.setValue("");
-    }
-
-    public void shortCVC() {
-        fieldsetCVC_CVV.setValue(DataGenerator.generateShortCVC_CVV());
-    }
-
 
     public void buttonContinue() {
         resume.click();
     }
 
-    // ошибки
+
     @DisplayName("Операция одобрена банком.")
-    public void successfully(String expectedText) {    //проверяет  появление ошибки
+    public void successfully(String expectedText) {
         successfully
                 .shouldBe(visible, Duration.ofSeconds(15))
                 .shouldHave(exactText(expectedText)).shouldBe(visible);
@@ -182,37 +81,4 @@ public class PaymentPage {
                 .shouldBe(visible, Duration.ofSeconds(15))
                 .shouldHave(exactText(expectedText)).shouldBe(visible);
     }
-
-    @DisplayName("Неверный формат")
-    public void invalidFormat(String expectedText) {
-        invalidFormat
-                .shouldBe(visible, Duration.ofSeconds(15))
-                .shouldHave(exactText(expectedText)).shouldBe(visible);
-    }
-    @DisplayName("(Неверный формат) не видим")
-    public void invalidFormatWeDontSeeIt(String expectedText) {
-        invalidFormat
-                .shouldBe(empty)
-                .shouldHave(exactText(expectedText)).shouldBe(empty);
-    }
-
-    @DisplayName("Поле обязательно для заполнения")
-    public void fieldIsRequired(String expectedText) {
-        fieldIsRequired
-                .shouldHave(exactText(expectedText)).shouldBe(visible);
-    }
-
-    @DisplayName("Неверно указан срок действия карты")
-    public void incorrectExpirationDate(String expectedText) {
-        incorrectExpirationDate
-                .shouldHave(exactText(expectedText)).shouldBe(visible);
-    }
-
-    @DisplayName("Истёк срок действия карты")
-    public void theCardIsExpired(String expectedText) {
-        theCardIsExpired
-                .shouldHave(exactText(expectedText)).shouldBe(visible);
-    }
-
-
 }

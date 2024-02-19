@@ -7,6 +7,10 @@
     <list default="true" id="943be3d6-1fc6-45d2-a944-f57f98cfde4a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/netology/data/DataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/netology/data/DataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/netology/page/PaymentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/netology/page/PaymentPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/netology/test/CreditTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/netology/test/CreditTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/netology/test/PaymentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/netology/test/PaymentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,8 +71,8 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.PaymentTest.transitionToPurchase">
-    <configuration name="CreditTest.justTheNameСredit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.PaymentTest.emptyCVC">
+    <configuration name="PaymentTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -81,7 +85,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.netology.test.CreditTest.justTheNameСredit&quot;" />
+            <option value="&quot;ru.netology.test.PaymentTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -92,7 +96,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CreditTest.leaveMonthEmptyСredit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PaymentTest.emptyCVC" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -105,7 +109,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.netology.test.CreditTest.leaveMonthEmptyСredit&quot;" />
+            <option value="&quot;ru.netology.test.PaymentTest.emptyCVC&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -116,7 +120,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CreditTest.ownerCyrillicСredit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PaymentTest.enteringMonth00" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -129,7 +133,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.netology.test.CreditTest.ownerCyrillicСredit&quot;" />
+            <option value="&quot;ru.netology.test.PaymentTest.enteringMonth00&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -140,7 +144,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CreditTest.ownerNumbersСredit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PaymentTest.leaveItBlankCardNumber" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -153,7 +157,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.netology.test.CreditTest.ownerNumbersСredit&quot;" />
+            <option value="&quot;ru.netology.test.PaymentTest.leaveItBlankCardNumber&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -164,7 +168,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="PaymentTest.transitionToPurchase" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PaymentTest.shortCardNumber" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -177,7 +181,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.netology.test.PaymentTest.transitionToPurchase&quot;" />
+            <option value="&quot;ru.netology.test.PaymentTest.shortCardNumber&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -190,11 +194,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.PaymentTest.transitionToPurchase" />
-        <item itemvalue="Gradle.CreditTest.leaveMonthEmptyСredit" />
-        <item itemvalue="Gradle.CreditTest.justTheNameСredit" />
-        <item itemvalue="Gradle.CreditTest.ownerNumbersСredit" />
-        <item itemvalue="Gradle.CreditTest.ownerCyrillicСredit" />
+        <item itemvalue="Gradle.PaymentTest.emptyCVC" />
+        <item itemvalue="Gradle.PaymentTest.enteringMonth00" />
+        <item itemvalue="Gradle.PaymentTest.leaveItBlankCardNumber" />
+        <item itemvalue="Gradle.PaymentTest.shortCardNumber" />
+        <item itemvalue="Gradle.PaymentTest" />
       </list>
     </recent_temporary>
   </component>
