@@ -6,8 +6,6 @@ services:
     restart: always
     ports:
       - '3306:3306'
-    volumes:
-      - ./schema:/docker-entrypoint-initdb.d
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_DATABASE=app
@@ -18,8 +16,6 @@ services:
     image: postgres:14-alpine
     ports:
       - '5432:5432'
-    volumes:
-      - ./data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=app
       - POSTGRES_USER=app
