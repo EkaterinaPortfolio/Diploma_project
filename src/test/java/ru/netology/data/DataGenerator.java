@@ -32,11 +32,11 @@ public class DataGenerator {
     }
 
 
-    public static String generateRandomCard() {      // рандомная карта 16 цифр
+    public static String generateRandomCard() {      
         return faker.finance().creditCard(CreditCardType.MASTERCARD);
     }
 
-    public static String generateNotValidCard() {   //  рандомная карта 15 цифр
+    public static String generateNotValidCard() {   
         return faker.numerify("#### #### #### ###");
     }
 
