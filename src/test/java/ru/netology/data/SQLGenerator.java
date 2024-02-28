@@ -9,16 +9,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class SQLGenerator {
-    private static final QueryRunner QUERY_RUNNER = new QueryRunner(); //объявление константы QUERY_RUNNER
+    private static final QueryRunner QUERY_RUNNER = new QueryRunner();
 
     private SQLGenerator() {
     }
 
-    private static Connection getConn() throws SQLException {  //метод подключения к базе данных, далее все методы смогут его использовать
-        return DriverManager.getConnection(System.getProperty("db.url"), "app", "pass"); //nак мы задаем системное свойство, как в build.gradle
-        // return DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass"); // если будет нужно подключение к постгерсу, тут нужно будет заменить,
-        // это вариант захардкоженного свойства
-
+    private static Connection getConn() throws SQLException {  
+        return DriverManager.getConnection(System.getProperty("db.url"), "app", "pass"); 
     }
 
     @SneakyThrows
@@ -50,11 +47,10 @@ public class SQLGenerator {
         return QUERY_RUNNER.query(conn, id, new ScalarHandler<String>());
     }
 
-
     @SneakyThrows
-    public static void cleanDatabase() {  // метод очищает таблицы
+    public static void cleanDatabase() {
         var connection = getConn();
-        QUERY_RUNNER.execute(connection, "DELETE FROM credit_request_entity"); //вызываем метод execute передаем(подключение, выполняем запрос)
+        QUERY_RUNNER.execute(connection, "DELETE FROM credit_request_entity"); 
         QUERY_RUNNER.execute(connection, "DELETE FROM payment_entity");
         QUERY_RUNNER.execute(connection, "DELETE FROM order_entity");
     }
